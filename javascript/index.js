@@ -131,6 +131,7 @@ function addBeatButtons() {
 	for (let i = 0; i < icons.length; i++) {
 		if (!beatButtonsContainer.innerHTML.includes(icons[i])) {
 			beatButtonsContainer.innerHTML += `<span onclick="addBeat(this)" class="beat-span">${icons[i]}</span>`;
+			new Audio(getSoundPath(icons[i]))
 		}
 	}
 	playBeat = beatPack.data;
