@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Beat 🎧</title>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"> -->
+    <link rel="stylesheet" href="picocss.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="javascript/beats.js"></script>
+</head>
+
+<body>
+    <div id="optionsPanel" class="close">
+        <button onclick="optionsPanelControl()">X</button>
+        <button onclick="pickPack(this)">default</button>
+        <button onclick="pickPack(this)">default2</button>
+        <!-- <button onclick="saveTrack()">Save Track</button>
+        <button onclick="loadTrack()">Load Track</button> -->
+    </div>
+    <div id="wrapper">
+        <nav id="navbar">
+            <ul>
+                <li><a href="https://www.codeman.gq" target="_blank" class="secondary" data-tooltip="Creator">👨‍💻</a></li>
+                <li onclick="trackControl()" id="trackcontroller" class="stopped" ><a href="#" class="secondary"></a></li>
+            </ul>
+            <ul id="titlePlace">
+                <li id="titlePlaceLi"><strong id="titlePlaceStrong">Emoji Beat 🎧</strong></li>
+            </ul>
+            <ul id="settings" onclick="optionsPanelControl()">
+                <li><a href="#" class="secondary">⚙</a></li>
+            </ul>
+        </nav>
+        <main id="beat-buttons-container">
+        </main>
+        <main id="container">
+            <div id="track-container"></div>
+        </main>
+    </div>
+    <audio src="" id="soundPlayer"></audio>
+    <script src="javascript/index.js"></script>
+</body>
+
+</html>
