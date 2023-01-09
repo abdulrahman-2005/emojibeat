@@ -9,6 +9,13 @@ try {
 	);
 }
 
+
+async function sleep(seconds) {
+	return new Promise((resolve) => {
+		setTimeout(resolve, seconds * 1000);
+	});
+}
+
 const trackContainer = document.getElementById("track-container");
 
 const soundingElements = [
@@ -33,51 +40,6 @@ function sounding() {
 }
 
 let speed = 5; //trackBeats played per secons
-
-async function sleep(seconds) {
-	return new Promise((resolve) => {
-		setTimeout(resolve, seconds * 1000);
-	});
-}
-
-class Sound {
-	constructor(source, volume, loop) {
-		this.source = source;
-		this.volume = volume;
-		this.loop = loop;
-		let son;
-		this.son = son;
-		this.finish = false;
-	}
-	stop() {
-		document.body.removeChild(this.son);
-	}
-	start() {
-		if (this.finish) return false;
-		this.son = document.createElement("embed");
-		this.son.setAttribute("src", this.source);
-		this.son.setAttribute("hidden", "true");
-		this.son.setAttribute("volume", this.volume);
-		this.son.setAttribute("autostart", "true");
-		this.son.setAttribute("loop", this.loop);
-		this.son.id = "SoundClass";
-		document.body.appendChild(this.son);
-		this.son = document.getElementById("SoundClass");
-	}
-	remove() {
-		document.body.removeChild(this.son);
-		this.finish = true;
-	}
-	init(volume, loop) {
-		this.finish = false;
-		this.volume = volume;
-		this.loop = loop;
-	}
-	src(source) {
-		this.source = source;
-		this.son.src = this.source;
-	}
-}
 
 function getBeat() {
 	return JSON.parse(localStorage.getItem(LocalStorageKey))["currentBeat"];
@@ -131,7 +93,7 @@ function addBeatButtons() {
 	for (let i = 0; i < icons.length; i++) {
 		if (!beatButtonsContainer.innerHTML.includes(icons[i])) {
 			beatButtonsContainer.innerHTML += `<span onclick="addBeat(this)" class="beat-span">${icons[i]}</span>`;
-			new Audio(getSoundPath(icons[i]))
+			new Audio(`data/${beatPackName}/${beatPack.data[i]}`)
 		}
 	}
 	playBeat = beatPack.data;
@@ -157,10 +119,8 @@ function getSoundPath(beatIcon) {
 
 let sound = false;
 let sounds = []
-sound = new Audio()
 function playSound(soundPath, number) {
-	sound.src = soundPath
-	sound.play()
+	new Audio(soundPath).play()
 	// sounds[number] = sound
 	// setTimeout(() => {
 	// 	sounds[number].pause()

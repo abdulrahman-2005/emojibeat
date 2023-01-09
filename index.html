@@ -6,17 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emoji Beat 🎧</title>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"> -->
-    <link rel="stylesheet" href="picocss.css">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <!-- <link rel="stylesheet" href="picocss.css"> -->
     <link rel="stylesheet" href="styles.css">
     <script src="javascript/beats.js"></script>
 </head>
 
 <body>
     <div id="optionsPanel" class="close">
-        <button onclick="optionsPanelControl()">X</button>
-        <button onclick="pickPack(this)">default</button>
-        <button onclick="pickPack(this)">default2</button>
+        <article>
+
+            <button onclick="optionsPanelControl()" class="closePanel">&#10060;</button>
+            <h1>Pick A Sound Pack</h1>
+            <article>
+                
+                <button onclick="pickPack(this)">default</button>
+                <button onclick="pickPack(this)">default2</button>
+            </article>
+        </article>
         <!-- <button onclick="saveTrack()">Save Track</button>
         <button onclick="loadTrack()">Load Track</button> -->
     </div>

@@ -1,6 +1,5 @@
 :root {
 	--nav-height: 100px;
-	--sounding-color: purple;
 	--border-size: 10px;
 }
 
@@ -97,8 +96,8 @@ body {
 }
 
 .sounding {
-	border-right: var(--border-size) solid var(--sounding-color);
-	border-left: var(--border-size) solid var(--sounding-color);
+	border-right: var(--border-size) solid var(--primary);
+	border-left: var(--border-size) solid var(--primary);
 }
 
 #beat-buttons-container {
@@ -189,7 +188,7 @@ body {
 
 @keyframes track-beat-animation {
 	0% {
-		background-color: yellow;
+		background-color: var(--primary);
 	}
 
 	10% {
@@ -248,20 +247,61 @@ body {
 #optionsPanel {
 	height: 100vh;
 	width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: black;
-    padding: 5vw !important;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 2vw;
-    transition: 2s;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: black;
+	padding: 5vw !important;
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 2vw;
+	transition: 0.8s;
+}
+
+#optionsPanel article {
+	border: 5px solid var(--primary);
+	height: fit-content;
+	width: fit-content;
+	padding: 2vw !important;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 1.1vw;
+}
+
+#optionsPanel .closePanel {
+	position: relative;
+	top: 1vw;
+	left: 1vw;
+	height: fit-content;
+	width: fit-content;
 }
 
 .close {
-    transform: translateX(110vw);
+	transform: translateX(110vw);
+}
+
+/* Pink Light scheme (Default) */
+/* Can be forced with data-theme="light" */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+	--primary: #d81b60;
+	--primary-hover: #c2185b;
+	--primary-focus: rgba(216, 27, 96, 0.125);
+	--primary-inverse: #fff;
+}
+
+
+/* Pink Dark scheme (Forced) */
+/* Enabled if forced with data-theme="dark" */
+[data-theme="dark"] {
+	--primary: #d81b60;
+	--primary-hover: #e91e63;
+	--primary-focus: rgba(216, 27, 96, 0.25);
+	--primary-inverse: #fff;
 }
