@@ -7,6 +7,7 @@ try {
 		LocalStorageKey,
 		JSON.stringify({ currentBeat: "default", saves: [] })
 	);
+	alert("You press given emojies add to track,remove beats by clicking on them, then you press the ▶ sign to start the track")
 }
 
 

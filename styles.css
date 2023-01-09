@@ -179,7 +179,7 @@ body {
 }
 
 #trackcontroller::before {
-	content: "⏹";
+	content: "⏸";
 }
 
 .stopped::before {
